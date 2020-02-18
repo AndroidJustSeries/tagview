@@ -7,12 +7,102 @@
     android:fitsSystemWindows="true"
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/taglayout_xml_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="TagLayout"
+        android:textSize="20sp"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.kds.just.tagview.TagLayout
+        android:id="@+id/taglayout_xml"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#ededed"
+        app:layout_constraintTop_toBottomOf="@id/taglayout_xml_title">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="Tag TextView 01"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/selector_tag"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="5dp"
+            android:text="Tag TextView 02"
+            android:textSize="16sp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Tag Button 03" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Tag CheckBox 04"
+            android:textSize="16sp" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="CheckBox 05"
+            android:textSize="16sp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Button 06" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Tag Button 07" />
+    </com.kds.just.tagview.TagLayout>
+
+    <Button
+        android:id="@+id/taglayout_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="TagLayout add Tag"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/taglayout_xml" />
+
+    <com.kds.just.tagview.TagLayout
+        android:id="@+id/taglayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/taglayout_button">
+
+    </com.kds.just.tagview.TagLayout>
+
     <Button
         android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="add tag"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="20dp"
+        android:text="TextTagView add tag"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/taglayout" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -32,5 +122,4 @@
             android:paddingBottom="10dp" />
 
     </androidx.core.widget.NestedScrollView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
