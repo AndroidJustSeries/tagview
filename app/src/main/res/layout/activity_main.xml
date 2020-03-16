@@ -22,24 +22,20 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:background="#ededed"
-        app:layout_constraintTop_toBottomOf="@id/taglayout_xml_title">
+        app:horizontalSpacing="10dp"
+        app:layout_constraintTop_toBottomOf="@id/taglayout_xml_title"
+        app:verticalSpacing="10dp">
 
         <TextView
             android:layout_width="150dp"
             android:layout_height="50dp"
             android:layout_marginLeft="10dp"
+            android:background="#00ff00"
             android:gravity="right"
             android:text="Tag TextView 011"
             android:textSize="16sp" />
 
         <TextView
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:text="Tag TextView 01"
-            android:textSize="16sp" />
-
-        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -52,15 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:text="Tag TextView 01"
-            android:textSize="16sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:background="#ffff00"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:text="Tag TextView 01"
