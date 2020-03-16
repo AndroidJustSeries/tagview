@@ -21,3 +21,29 @@ dependencies {
     implementation 'com.github.AndroidJustSeries:tagview:{latest version}'
 }
 ```
+
+## How to use
+#XML
+```
+    <com.kds.just.tagview.TagLayout
+        android:id="@+id/taglayout_xml"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#ededed"
+        app:horizontalSpacing="10dp"
+        app:verticalSpacing="10dp">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Button 06" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="#ff0000"
+            android:text="Tag Button 07" />
+    </com.kds.just.tagview.TagLayout>
+```
