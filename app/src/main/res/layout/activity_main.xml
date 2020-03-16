@@ -25,6 +25,39 @@
         app:layout_constraintTop_toBottomOf="@id/taglayout_xml_title">
 
         <TextView
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:gravity="right"
+            android:text="Tag TextView 011"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Tag TextView 01"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="Tag TextView 01"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="Tag TextView 01"
+            android:textSize="16sp" />
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -75,6 +108,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
+            android:background="#ff0000"
             android:text="Tag Button 07" />
     </com.kds.just.tagview.TagLayout>
 

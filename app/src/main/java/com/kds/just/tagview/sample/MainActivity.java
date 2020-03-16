@@ -27,11 +27,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        tagview = findViewById(R.id.tagview);
-//        tagLayout = findViewById(R.id.taglayout);
-//        ((ViewGroup)tagview.getParent()).removeView(tagview);
-//        ((ViewGroup)tagLayout.getParent()).removeView(tagLayout);
-
         setTagLayout();
         setTagView();
     }
@@ -50,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
 
     }
 
