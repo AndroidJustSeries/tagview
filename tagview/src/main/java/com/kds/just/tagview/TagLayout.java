@@ -67,6 +67,10 @@ public class TagLayout  extends ViewGroup implements View.OnClickListener {
         return new TagLayout.LayoutParams(getContext(), attrs);
     }
 
+    protected ViewGroup.LayoutParams generateDefaultLayoutParams() {
+        return new TagLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+    }
+
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         Log.e(TAG,"KDS3393_TEST_onMeasure START");
