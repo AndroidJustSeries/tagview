@@ -73,7 +73,6 @@ public class TagLayout  extends ViewGroup implements View.OnClickListener {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        Log.e(TAG,"KDS3393_TEST_onMeasure START");
         final int widthMode = MeasureSpec.getMode(widthMeasureSpec);
         final int layoutWidth = MeasureSpec.getSize(widthMeasureSpec);
         final int heightMode = MeasureSpec.getMode(heightMeasureSpec);
@@ -113,7 +112,6 @@ public class TagLayout  extends ViewGroup implements View.OnClickListener {
                 childHeight = lp.height;
             }
 
-            Log.e(TAG,"KDS3393_TEST_onMeasure [" + i + "] childWidth = " + childWidth + " childHeight = " + childHeight);
             if (layoutWidth - childPaddingLeft < (childWidth + mDividerH + getPaddingRight())) {   //라인 변경
                 childPaddingLeft = getPaddingLeft() + lp.leftMargin;
                 childPaddingTop += beforeMaxHeight + mDividerV;
@@ -129,18 +127,13 @@ public class TagLayout  extends ViewGroup implements View.OnClickListener {
             lp.mDisplayWidth = childWidth;
             lp.mDisplayHeight = childHeight;
 
-            Log.e(TAG,"KDS3393_TEST_T w 1 [" + i + "] = " + lp.leftMargin + " childWidth = " + childWidth + " realHeight = " + (childPaddingTop + beforeMaxHeight + getPaddingTop() + getPaddingBottom()) + " childPaddingTop = " + childPaddingTop + " beforeMaxHeight() = " + beforeMaxHeight);
         }
         layoutHeight = (childPaddingTop + beforeMaxHeight + getPaddingTop() + getPaddingBottom());
 
         measureChildren(MeasureSpec.makeMeasureSpec(layoutWidth, MeasureSpec.EXACTLY),
                 MeasureSpec.makeMeasureSpec(layoutHeight, MeasureSpec.EXACTLY));
 
-        Log.e(TAG,"KDS3393_TEST_onMeasure layout widthSize = " + layoutWidth + " heightSize = " + layoutHeight);
         setMeasuredDimension(layoutWidth, layoutHeight);
-
-//        ((Activity)getContext()).finish();
-        Log.e(TAG,"KDS3393_TEST_onMeasure END");
     }
 
     @Override
@@ -160,8 +153,6 @@ public class TagLayout  extends ViewGroup implements View.OnClickListener {
             LayoutParams lp = (LayoutParams) child.getLayoutParams();
             childWidth = lp.mDisplayWidth;
             childHeight = lp.mDisplayHeight;
-            Log.e(TAG,"KDS3393_TEST_v w = " + childWidth + " mWidth = " + mWidth + " view w = " + (mWidth - childPaddingLeft) +
-                    " layout w = " + (childWidth + mDividerH + getPaddingRight()) + " height = " + childHeight);
             if (mWidth - childPaddingLeft < (childWidth + mDividerH + getPaddingRight())) { //라인 변경
                 childPaddingLeft = getPaddingLeft() + lp.leftMargin;
                 childPaddingTop += beforeMaxHeight + mDividerV;
@@ -173,9 +164,7 @@ public class TagLayout  extends ViewGroup implements View.OnClickListener {
                 childPaddingLeft += lp.leftMargin;
             }
             child.layout(childPaddingLeft,childPaddingTop,childPaddingLeft + childWidth,childPaddingTop + childHeight);
-            Log.e(TAG,"KDS3393_TEST_v view.getHeight() 2 = " + child.getHeight());
             childPaddingLeft += childWidth + mDividerH + lp.rightMargin;
-            Log.e(TAG,"KDS3393_TEST_T w 2 = " + lp.leftMargin + " childWidth = " + childWidth + " realHeight = " + (childPaddingTop + beforeMaxHeight + getPaddingTop() + getPaddingBottom()) + " childPaddingTop = " + childPaddingTop + " beforeMaxHeight() = " + beforeMaxHeight);
         }
 
     }
