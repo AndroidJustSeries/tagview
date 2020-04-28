@@ -20,10 +20,16 @@ public class TagView extends TagLayout implements View.OnClickListener {
 
     public TagView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        setAttrs(attrs);
     }
 
     public TagView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        setAttrs(attrs);
+    }
+
+    private void setAttrs(AttributeSet attrs) {
+
     }
 
     public void addTag(String tag) {
@@ -38,6 +44,7 @@ public class TagView extends TagLayout implements View.OnClickListener {
         }
         addTag(tv);
     }
+
     private void setSelectView(View v, boolean isSelected) {
         TextView tv = (TextView) v;
         if (tv.isSelected()) {

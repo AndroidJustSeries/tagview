@@ -29,6 +29,7 @@ public class TagLayout  extends ViewGroup implements View.OnClickListener {
 
     private int mDividerH = 0;  //Tag간 좌우 간격
     private int mDividerV = 0;  //Tag간 상하 간격
+    private boolean mHorizontalSpreadInside = false;    //내부간격 균등 분배
 
     protected int mTagBackgroundResourceId = 0;   //background resource
 
@@ -60,6 +61,7 @@ public class TagLayout  extends ViewGroup implements View.OnClickListener {
         TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.TagLayout);
         mDividerH = ta.getDimensionPixelSize(R.styleable.TagLayout_horizontalSpacing,0);
         mDividerV = ta.getDimensionPixelSize(R.styleable.TagLayout_verticalSpacing,0);
+        mHorizontalSpreadInside = ta.getBoolean(R.styleable.TagLayout_horizontal_spread_inside,false);
     }
 
     @Override
@@ -146,6 +148,7 @@ public class TagLayout  extends ViewGroup implements View.OnClickListener {
         int childHeight = 0;
 
         int beforeMaxHeight = 0;
+        ArrayList<View> lineViews = new ArrayList<>();
         for (int i=0;i<getChildCount();i++) {
             View child = getChildAt(i);
 //            child.setBackgroundColor(getRandomRGB());
@@ -154,6 +157,11 @@ public class TagLayout  extends ViewGroup implements View.OnClickListener {
             childWidth = lp.mDisplayWidth;
             childHeight = lp.mDisplayHeight;
             if (mWidth - childPaddingLeft < (childWidth + mDividerH + getPaddingRight())) { //라인 변경
+                if (mHorizontalSpreadInside) {
+                    setHorizontalSpreadInside(lineViews,mWidth);
+                }
+                lineViews.clear();
+                lineViews.add(child);
                 childPaddingLeft = getPaddingLeft() + lp.leftMargin;
                 childPaddingTop += beforeMaxHeight + mDividerV;
                 beforeMaxHeight = childHeight;
@@ -162,16 +170,41 @@ public class TagLayout  extends ViewGroup implements View.OnClickListener {
                     beforeMaxHeight = childHeight;
                 }
                 childPaddingLeft += lp.leftMargin;
+                lineViews.add(child);
             }
             child.layout(childPaddingLeft,childPaddingTop,childPaddingLeft + childWidth,childPaddingTop + childHeight);
             childPaddingLeft += childWidth + mDividerH + lp.rightMargin;
         }
+        if (mHorizontalSpreadInside) {
+            setHorizontalSpreadInside(lineViews,mWidth);
+        }
+    }
 
+    private void setHorizontalSpreadInside(ArrayList<View> lineViews, int width) {
+        if (lineViews.size() <= 1) {
+            return;
+        }
+        int totalViewWidth = 0;
+        for (View v:lineViews) {
+            totalViewWidth += v.getWidth();
+        }
+        int insideMargin = (width - totalViewWidth) / (lineViews.size() - 1);
+        int left = getPaddingLeft();
+        for (View v:lineViews) {
+            v.layout(left ,v.getTop(),left + v.getWidth() ,v.getBottom());
+            left = left + v.getWidth() + insideMargin;
+        }
     }
 
     public void setDivider(int h, int v) {
         mDividerH = h;
         mDividerV = v;
+        invalidate();
+        requestLayout();
+    }
+
+    public void setHorizontalSpreadInside(boolean isSpreadInside) {
+        mHorizontalSpreadInside = isSpreadInside;
         invalidate();
         requestLayout();
     }

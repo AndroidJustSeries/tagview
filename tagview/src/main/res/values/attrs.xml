@@ -3,5 +3,6 @@
     <declare-styleable name="TagLayout">
         <attr name="verticalSpacing" format="dimension" />
         <attr name="horizontalSpacing" format="dimension" />
+        <attr name="horizontal_spread_inside" format="boolean" />
     </declare-styleable>
 </resources>

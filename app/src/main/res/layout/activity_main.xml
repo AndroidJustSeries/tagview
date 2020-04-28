@@ -102,12 +102,23 @@
 
     <Button
         android:id="@+id/taglayout_button"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:text="TagLayout add Tag"
         android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/taglayout_xml" />
+
+    <CheckBox
+        android:id="@+id/taglayout_button_spreadinside_chk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:text="SpreadInside"
+        app:layout_constraintBottom_toBottomOf="@id/taglayout_button"
+        app:layout_constraintStart_toEndOf="@id/taglayout_button"
+        app:layout_constraintTop_toTopOf="@id/taglayout_button" />
 
     <com.kds.just.tagview.TagLayout
         android:id="@+id/taglayout"

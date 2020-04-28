@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,7 +47,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+        ((CheckBox)findViewById(R.id.taglayout_button_spreadinside_chk)).setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                tagLayout.setHorizontalSpreadInside(isChecked);
+            }
+        });
     }
 
     private void setTagView() {
